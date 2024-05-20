@@ -29,3 +29,28 @@ function operate(num1, num2, operator) {
         divide(num1, num2)
     }
 }
+
+let displayNum = "";
+let display = document.getElementById("display")
+
+let clear = document.getElementById("clear");
+clear.addEventListener("click", function() {
+    display.innerText = 0;
+    displayNum = "";
+})
+
+function displayPopulator(number) {
+    let numberElement = document.getElementById(number)
+    let numberContent = numberElement.textContent;
+    displayNum += numberContent;
+    display.innerText = displayNum;
+}
+
+let numberButtons = document.querySelectorAll("#numbers button");
+
+numberButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        const number = button.id;
+        displayPopulator(number);
+    });
+});
